@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["python", "simple_py.py"]
+COPY . /app
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 80
+ENV NAME World
+CMD ["python", "app.py"]
